@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon src/index.js"
+    "start": "nodemon src/index.js",
+    "test": "jest"
   },
   "license": "MIT",
   "author": "Guilherme Balog Gardino <guibalog@gmail.com> (guilhermebalog.github.io)",
@@ -11,10 +12,12 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "jest": "^25.2.3",
     "knex": "^0.20.13",
     "sqlite3": "^4.1.1"
   },
   "devDependencies": {
+    "celebrate": "^12.0.1",
     "nodemon": "^2.0.2"
   }
 }
