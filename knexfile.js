@@ -1,7 +1,6 @@
-// Update with your config settings.
+require('dotenv').config()
 
 module.exports = {
-
   development: {
     client: 'sqlite3',
     connection: {
@@ -24,7 +23,6 @@ module.exports = {
     useNullAsDefault: true
   },
 
-
   production: {
     client: 'postgresql',
     connection: process.env.DATABASE_URL,
@@ -37,5 +35,4 @@ module.exports = {
       directory: './src/database/migrations'
     }
   }
-
 };
