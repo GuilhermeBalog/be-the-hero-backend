@@ -8,6 +8,10 @@ const ProfileController = require('./controllers/ProfileController')
 
 const routes = express.Router()
 
+routes.get('/', (req, res) => {
+    return res.json({ message: "Welcome to Be The Hero's API! " })
+})
+
 routes.post('/sessions', celebrate({
     [Segments.BODY]: Joi.object().keys({
         id: Joi.string().required()
@@ -30,7 +34,7 @@ routes.get('/profile', celebrate({
     [Segments.HEADERS]: Joi.object({
         authorization: Joi.string().required()
     }).unknown()
-}),ProfileController.index)
+}), ProfileController.index)
 
 routes.get('/incidents', celebrate({
     [Segments.QUERY]: Joi.object().keys({
@@ -48,16 +52,16 @@ routes.post('/incidents', celebrate({
     [Segments.HEADERS]: Joi.object({
         authorization: Joi.string().required()
     }).unknown()
-}),IncidentController.create)
+}), IncidentController.create)
 
 routes.delete('/incidents/:id', celebrate({
     [Segments.PARAMS]: Joi.object().keys({
         id: Joi.number().required()
     }),
-    
+
     [Segments.HEADERS]: Joi.object({
         authorization: Joi.string().required()
     }).unknown()
-}),IncidentController.delete)
+}), IncidentController.delete)
 
 module.exports = routes
